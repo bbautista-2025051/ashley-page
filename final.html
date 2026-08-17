@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para ti, Ashley 💙</title>
+  <meta name="description" content="Un mensaje final para Ashley">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/bg-sunrise.css">
+</head>
+<body class="page-final">
+  <!-- Sunrise Background -->
+  <div class="sunrise-bg">
+    <div class="sunrise-gradient"></div>
+    <div class="sunrise-sun"></div>
+    <div class="sunrise-rays">
+      <div class="sunrise-ray"></div>
+      <div class="sunrise-ray"></div>
+      <div class="sunrise-ray"></div>
+      <div class="sunrise-ray"></div>
+      <div class="sunrise-ray"></div>
+      <div class="sunrise-ray"></div>
+      <div class="sunrise-ray"></div>
+    </div>
+    <div class="sunrise-cloud"></div>
+    <div class="sunrise-cloud"></div>
+    <div class="sunrise-cloud"></div>
+    <div class="sunrise-reflection"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-star-fade"></div>
+    <div class="sunrise-vignette"></div>
+    <div class="sunrise-particles">
+      <div class="sunrise-particle"></div>
+      <div class="sunrise-particle"></div>
+      <div class="sunrise-particle"></div>
+      <div class="sunrise-particle"></div>
+      <div class="sunrise-particle"></div>
+      <div class="sunrise-particle"></div>
+      <div class="sunrise-particle"></div>
+      <div class="sunrise-particle"></div>
+    </div>
+  </div>
+
+  <!-- Confetti Container -->
+  <div class="confetti-container" id="confetti-container"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Ashley</a>
+    <div class="nav-progress">
+      <a href="index.html" class="nav-dot"></a>
+      <a href="carta.html" class="nav-dot"></a>
+      <a href="historia.html" class="nav-dot"></a>
+      <a href="razones.html" class="nav-dot"></a>
+      <a href="final.html" class="nav-dot active"></a>
+    </div>
+  </nav>
+
+  <!-- Final Section -->
+  <section class="final">
+    <!-- Decoraciones de fondo -->
+    <div class="final-decoration final-decoration-1"></div>
+    <div class="final-decoration final-decoration-2"></div>
+    <div class="final-decoration final-decoration-3"></div>
+
+    <div class="final-content">
+      <div class="final-icon">💙</div>
+      
+      <h1 class="final-name">Ashley</h1>
+
+      <div class="final-message">
+        <!-- ============================================ -->
+        <!-- PERSONALIZA TU MENSAJE FINAL AQUÍ            -->
+        <!-- Edita el contenido con tus palabras          -->
+        <!-- ============================================ -->
+        
+        <p>
+          Ashley,
+        </p>
+
+        <p>
+          Gracias por existir.
+          Gracias por ser quien eres.
+          Gracias por hacerme sentir
+          algo tan especial.
+        </p>
+
+        <p>
+          <span class="personalizable">Te agradezo haber llevado mi corazón a un lugar tan especial.
+            gracias por hacerme sentir que todo es posible.
+            gracias por ser mi persona favorita, y por hacerme sentir que todo es más bonito contigo.
+            te agradezco por cada momento que hemos compartido, y por todos los que aún nos esperan.
+          </span>
+        </p>
+
+        <p>
+          Eres mi persona favorita en este mundo.
+          Y haré todo para que lo sepas.
+        </p>
+
+        <p>
+          No sé qué nos depare el futuro,
+          pero sé que quiero enfrentarlo contigo.
+        </p>
+
+        <!-- ============================================ -->
+        <!-- FIN DE LA PERSONALIZACIÓN                    -->
+        <!-- ============================================ -->
+      </div>
+
+      <p class="final-farewell">
+        Con amor, siempre<br>
+        <small>Tu persona favorita 💙</small>
+      </p>
+
+      <div class="final-back">
+        <a href="index.html" class="btn btn-secondary">
+          <span>←</span> Volver al inicio
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Page Navigation -->
+  <div class="page-nav">
+    <a href="razones.html" class="page-nav-btn">
+      <span>←</span> Atrás
+    </a>
+    <div class="page-nav-center">
+      <a href="index.html" class="page-nav-indicator"></a>
+      <a href="carta.html" class="page-nav-indicator"></a>
+      <a href="historia.html" class="page-nav-indicator"></a>
+      <a href="razones.html" class="page-nav-indicator"></a>
+      <a href="final.html" class="page-nav-indicator active"></a>
+    </div>
+    <a href="index.html" class="page-nav-btn">
+      Inicio <span>🏠</span>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Trigger confetti on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(createConfetti, 500);
+    });
+
+    function createConfetti() {
+      const container = document.getElementById('confetti-container');
+      const colors = ['celeste', 'dorado', 'blanco'];
+      
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = `confetti ${colors[Math.floor(Math.random() * colors.length)]}`;
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        container.appendChild(confetti);
+      }
+
+      // Remove confetti after animation
+      setTimeout(() => {
+        container.innerHTML = '';
+      }, 6000);
+    }
+  </script>
+</body>
+</html>

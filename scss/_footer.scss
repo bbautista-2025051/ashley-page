@@ -1,0 +1,211 @@
+// ============================================
+// FINAL - Página de cierre
+// ============================================
+
+.final {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $espaciado-4xl $espaciado-xl;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+  background: $gradiente-principal;
+  overflow: hidden;
+
+  // Gradiente decorativo
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at center bottom,
+      rgba($celeste, 0.08) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  &-content {
+    position: relative;
+    z-index: $z-contenido;
+    max-width: 700px;
+  }
+
+  // Icono decorativo
+  &-icon {
+    font-size: 60px;
+    margin-bottom: $espaciado-2xl;
+    animation: heartBeat 2s ease-in-out infinite;
+  }
+
+  // Nombre
+  &-name {
+    font-family: $font-titulos;
+    font-size: $font-size-5xl;
+    color: $blanco-hueso;
+    margin-bottom: $espaciado-2xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+  }
+
+  // Mensaje principal
+  &-message {
+    font-size: $font-size-xl;
+    color: $blanco-hueso;
+    line-height: 2;
+    margin-bottom: $espaciado-3xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.6s forwards;
+
+    p {
+      margin-bottom: $espaciado-xl;
+      color: $blanco-hueso;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Texto personalizable
+    .personalizable {
+      color: $celeste;
+      font-style: italic;
+      border-bottom: 1px dashed rgba($celeste, 0.3);
+      padding-bottom: 2px;
+    }
+  }
+
+  // Despedida
+  &-farewell {
+    font-family: $font-titulos;
+    font-size: $font-size-2xl;
+    color: $dorado;
+    font-style: italic;
+    margin-top: $espaciado-3xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.9s forwards;
+  }
+
+  // Botón volver
+  &-back {
+    margin-top: $espaciado-3xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.2s forwards;
+  }
+
+  // Decoraciones de fondo
+  &-decoration {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+
+    &-1 {
+      width: 300px;
+      height: 300px;
+      background: rgba($celeste, 0.03);
+      top: -50px;
+      left: -50px;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    &-2 {
+      width: 250px;
+      height: 250px;
+      background: rgba($dorado, 0.03);
+      bottom: -30px;
+      right: -30px;
+      animation: float 6s ease-in-out infinite reverse;
+    }
+
+    &-3 {
+      width: 150px;
+      height: 150px;
+      background: rgba($celeste, 0.05);
+      top: 30%;
+      right: 10%;
+      animation: float 7s ease-in-out infinite 1s;
+    }
+  }
+
+  // Edit hint
+  &-edit-hint {
+    margin-top: $espaciado-2xl;
+    padding: $espaciado-md;
+    background: rgba($dorado, 0.1);
+    border: 1px dashed rgba($dorado, 0.3);
+    border-radius: $radio-md;
+    font-size: $font-size-sm;
+    color: $dorado;
+
+    &::before {
+      content: '✏️ ';
+    }
+  }
+}
+
+// ============================================
+// CONFETI - Efecto de confeti
+// ============================================
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: $z-overlay;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  animation: confettiFall 4s ease-in-out forwards;
+
+  &.celeste {
+    background: $celeste;
+    border-radius: 50%;
+  }
+
+  &.dorado {
+    background: $dorado;
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+
+  &.blanco {
+    background: rgba($blanco-hueso, 0.6);
+    border-radius: 50%;
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-md) {
+  .final {
+    padding: $espaciado-3xl $espaciado-lg;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    &-name {
+      font-size: $font-size-4xl;
+    }
+
+    &-message {
+      font-size: $font-size-lg;
+    }
+
+    &-farewell {
+      font-size: $font-size-xl;
+    }
+  }
+}

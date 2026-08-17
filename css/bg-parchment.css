@@ -1,0 +1,248 @@
+/* ============================================
+   PARCHMENT - Papel Pergamino Animado
+   ============================================ */
+
+/* Override body background for parchment page */
+body.page-parchment {
+  background: #0d1a2e;
+}
+
+body.page-parchment::before {
+  display: none;
+}
+
+.parchment-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0d1a2e 0%, #162240 30%, #1a2a4a 50%, #162240 70%, #0d1a2e 100%);
+}
+
+/* Resplandor cálido central tipo vela */
+.parchment-glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(240, 194, 127, 0.12) 0%, rgba(210, 160, 100, 0.06) 40%, transparent 70%);
+  animation: glowPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Segundo resplandor más grande */
+.parchment-glow-secondary {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(180, 130, 70, 0.08) 0%, transparent 60%);
+  animation: glowPulse 6s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+
+/* Borde quemado sutil */
+.parchment-burn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  box-shadow: inset 0 0 200px rgba(80, 50, 20, 0.2),
+              inset 0 0 100px rgba(10, 22, 40, 0.6);
+}
+
+/* Manchas antiguas */
+.parchment-stain {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(160, 110, 50, 0.12) 0%, rgba(140, 90, 43, 0.05) 50%, transparent 70%);
+  pointer-events: none;
+}
+
+.parchment-stain-1 {
+  width: 400px;
+  height: 350px;
+  top: 10%;
+  left: 5%;
+  animation: stainFade 15s ease-in-out infinite;
+}
+
+.parchment-stain-2 {
+  width: 350px;
+  height: 400px;
+  top: 55%;
+  right: 8%;
+  animation: stainFade 18s ease-in-out infinite reverse;
+}
+
+.parchment-stain-3 {
+  width: 300px;
+  height: 300px;
+  bottom: 15%;
+  left: 25%;
+  animation: stainFade 20s ease-in-out infinite 3s;
+}
+
+@keyframes stainFade {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
+}
+
+/* Textura de papel */
+.parchment-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Partículas de polvo dorado */
+.parchment-dust {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.parchment-dust-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(240, 194, 127, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(240, 194, 127, 0.4);
+  animation: dustFloat 12s ease-in-out infinite;
+}
+
+.parchment-dust-particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; width: 4px; height: 4px; }
+.parchment-dust-particle:nth-child(2) { left: 25%; top: 40%; animation-delay: -2s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(3) { left: 40%; top: 15%; animation-delay: -4s; width: 5px; height: 5px; }
+.parchment-dust-particle:nth-child(4) { left: 55%; top: 35%; animation-delay: -6s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(5) { left: 70%; top: 25%; animation-delay: -8s; width: 4px; height: 4px; }
+.parchment-dust-particle:nth-child(6) { left: 85%; top: 45%; animation-delay: -1s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(7) { left: 15%; top: 60%; animation-delay: -3s; width: 4px; height: 4px; }
+.parchment-dust-particle:nth-child(8) { left: 60%; top: 70%; animation-delay: -5s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(9) { left: 35%; top: 80%; animation-delay: -7s; width: 5px; height: 5px; }
+.parchment-dust-particle:nth-child(10) { left: 80%; top: 65%; animation-delay: -9s; width: 4px; height: 4px; }
+.parchment-dust-particle:nth-child(11) { left: 50%; top: 50%; animation-delay: -1.5s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(12) { left: 5%; top: 75%; animation-delay: -4.5s; width: 4px; height: 4px; }
+.parchment-dust-particle:nth-child(13) { left: 90%; top: 15%; animation-delay: -6.5s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(14) { left: 20%; top: 90%; animation-delay: -3.5s; width: 5px; height: 5px; }
+.parchment-dust-particle:nth-child(15) { left: 65%; top: 10%; animation-delay: -10s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(16) { left: 45%; top: 65%; animation-delay: -7.5s; width: 4px; height: 4px; }
+.parchment-dust-particle:nth-child(17) { left: 75%; top: 85%; animation-delay: -2.5s; width: 3px; height: 3px; }
+.parchment-dust-particle:nth-child(18) { left: 30%; top: 30%; animation-delay: -5.5s; width: 4px; height: 4px; }
+
+@keyframes dustFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(20px, -35px) scale(1.4);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-15px, 15px) scale(0.7);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(25px, 20px) scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Vineta superior e inferior */
+.parchment-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 10, 20, 0.6) 0%,
+    transparent 25%,
+    transparent 75%,
+    rgba(5, 10, 20, 0.6) 100%
+  );
+  pointer-events: none;
+}
+
+/* Vineta radial */
+.parchment-vignette-radial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(5, 10, 20, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* Líneas decorativas de carta */
+.parchment-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.06;
+}
+
+.parchment-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240, 194, 127, 0.6), transparent);
+}
+
+.parchment-line:nth-child(1) { top: 30%; }
+.parchment-line:nth-child(2) { top: 50%; }
+.parchment-line:nth-child(3) { top: 70%; }
+
+/* Brillo sutil animado */
+.parchment-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(240, 194, 127, 0.03), transparent);
+  animation: shimmerPass 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerPass {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}

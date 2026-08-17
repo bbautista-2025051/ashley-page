@@ -1,0 +1,168 @@
+// ============================================
+// HERO - Página de bienvenida
+// ============================================
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $espaciado-4xl $espaciado-xl;
+  position: relative;
+  overflow: hidden;
+  background: $gradiente-hero;
+
+  // Overlay sutil
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba($celeste, 0.05) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  &-content {
+    position: relative;
+    z-index: $z-contenido;
+    max-width: 800px;
+  }
+
+  &-name {
+    font-family: $font-titulos;
+    font-size: $font-size-hero;
+    font-weight: 700;
+    color: $blanco-hueso;
+    margin-bottom: $espaciado-md;
+    line-height: 1.1;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+
+    // Efecto de brillo dorado
+    background: linear-gradient(
+      135deg,
+      $blanco-hueso 0%,
+      $dorado 50%,
+      $blanco-hueso 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 1s ease 0.3s forwards,
+               shimmer 3s linear 1.3s infinite;
+  }
+
+  &-subtitle {
+    font-family: $font-titulos;
+    font-size: $font-size-2xl;
+    color: $celeste;
+    font-style: italic;
+    margin-bottom: $espaciado-2xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.6s forwards;
+  }
+
+  &-message {
+    font-size: $font-size-lg;
+    color: $texto-secundario;
+    line-height: 1.8;
+    margin-bottom: $espaciado-3xl;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.9s forwards;
+  }
+
+  &-cta {
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.2s forwards;
+  }
+
+  // Scroll indicator
+  &-scroll {
+    position: absolute;
+    bottom: $espaciado-4xl;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $espaciado-sm;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+
+    &-text {
+      font-size: $font-size-xs;
+      color: $texto-secundario;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    &-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid $celeste;
+      border-bottom: 2px solid $celeste;
+      transform: rotate(45deg);
+      animation: bounceSubtle 2s ease-in-out infinite;
+    }
+  }
+
+  // Decoración de fondo
+  &-decoration {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba($celeste, 0.03);
+    pointer-events: none;
+
+    &-1 {
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    &-2 {
+      width: 300px;
+      height: 300px;
+      bottom: -50px;
+      left: -50px;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    &-3 {
+      width: 200px;
+      height: 200px;
+      top: 30%;
+      left: 10%;
+      animation: float 7s ease-in-out infinite 1s;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-md) {
+  .hero {
+    padding: $espaciado-3xl $espaciado-lg;
+
+    &-subtitle {
+      font-size: $font-size-xl;
+    }
+
+    &-message {
+      font-size: $font-size-base;
+    }
+
+    &-scroll {
+      bottom: $espaciado-3xl;
+    }
+  }
+}

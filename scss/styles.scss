@@ -1,0 +1,21 @@
+// ============================================
+// STYLES - Archivo principal SCSS
+// Importa todos los parciales
+// ============================================
+
+// Variables
+@import 'variables';
+
+// Base
+@import 'base';
+
+// Animaciones
+@import 'animations';
+
+// Componentes
+@import 'navigation';
+@import 'hero';
+@import 'letter';
+@import 'timeline';
+@import 'reasons';
+@import 'footer';
